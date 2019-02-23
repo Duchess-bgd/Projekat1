@@ -187,7 +187,7 @@ height: 4.5vh;
 padding: 5px;
 background-color: green;}
 
-.gallery {margin-top: -9vw;
+#gallery {margin-top: -9vw;
 	background-color: white;
 	border: 10px solid white;
 	width: 100%;
@@ -372,13 +372,18 @@ z-index: -1;
 		<div id="Gallery">
 
 			<div id="nevidljivi"> <img src="korpa.png" id="korpica"/><p class=textCheckOut>Check Out</p>
-				<p class="yourOrder"><b>Your Order:</b>
-				<br>1) Nesto<br>2) Nesto<br>3) Nesto</p> 
+				<div id="yourOrder"><b>Your Order:</b>
+
+
+
+				<div></div>
+				</div>
+				
 					<button id="snimiLS">Confirm</button> 
 					<button id="clear">Clear</button> 
 
 			</div>
-            <div class="gallery">
+            <div id="gallery">
                 <div id="s" class="galleryItem galleryItem-1" >
 					<div id="o1" class="opis hidden" >Pink Forest 5€</div>
                     <img src="img/slika1.jpg" alt="slika 1" class="galleryImg">
@@ -405,7 +410,7 @@ z-index: -1;
 				</div>
 				<div id="s"class="galleryItem galleryItem-7">
 						<div id="o7" class="opis hidden">Moon Bath 5€ </div>
-                    <img src="img/slika7.jpg" alt="slika 7" class="galleryImg">
+            <img src="img/slika7.jpg" alt="slika 7" class="galleryImg">
 				</div>
 				<div id="s"class="galleryItem galleryItem-8">
 						<div id="o8" class="opis hidden">Dark Ruler 5€</div>
@@ -422,7 +427,9 @@ z-index: -1;
 			</div>
 			<div id="zoomDiv">
 			<img id="zoom" src="" alt="" />
+			<div id="korpaDiv">
 			<img id="zoom_korpica" src="korpa.png" alt="" />
+		</div>
 			</div>
 
 <!--About - Treca sekcija-->
@@ -438,7 +445,7 @@ z-index: -1;
 						 2016 -  Svet Kompjutera (Politika A.D.) radi kao stručni saradnik u rubrici Test Run koja je
 							posvećena aktuelnom softveru. Zadužena za testiranje svih vrsta softvera (grafički, tekstualni,
 							 audio, multimedija itd) i pisanje tekstova o testiranom softveru namenjenog čitaocima Sveta 
-							 Kompjutera. Do sada objavljene tekstove u ovoj rubrici (njih preko 180) možete pronaći na 
+							 Kompjutera. Do sada objavljene tekstove u ovoj rubrici (njih preko 200) možete pronaći na 
 							 sledećem linku https://www.sk.rs/indexes/sections/tr.html
 							Sem testiranja softvera objavljeno je i nekoliko tekstova u rubrici „Na licu mesta“ gde je 
 							izveštavala sa različitih IT konferencija.
@@ -478,13 +485,20 @@ z-index: -1;
 					});
 }
 			})
+			var korpa=document.querySelector("#korpaDiv");
 
 // za zoomiranje slika u galeriji
 	var zslDiv = document.getElementById("zoomDiv");
 	var zsl = document.getElementById("zoom");
 	var slike = document.querySelectorAll('img.galleryImg');
-	for (var i = 0; i < slike.length; i++)
+	for (let i = 0; i < slike.length; i++)
 		slike[i].addEventListener("click", function () {
+			// var obj=	data.proizvodi.find(function(el){ 
+			// 	if(el.slika==slike[i].src) return true;
+			// });
+		   korpa.setAttribute("data-barkod",data.proizvodi[i].broj);
+			 korpa.setAttribute("data-imePr",data.proizvodi[i].ime);
+
 			zsl.src = this.src;
 			zslDiv.style.display = "block";
 
@@ -496,13 +510,13 @@ z-index: -1;
 
 //za WebShop
 
-	var data={ // sa servera nam je stigao objekat proizvodi koji ima podatke  kao niz
+	var data={ 
 
 proizvodi:[
 		{ ime:"Pink Forest",
 	cena:5,
 	slika:"img/slika1.jpg",
-	broj: 1 // redosled gde se nalazi proizvod
+	broj: 1 
 },
 { ime:"Red Sky",
 	cena:5,
@@ -561,62 +575,64 @@ if (st) kupljeni=JSON.parse(st);
 console.log(kupljeni);
 console.log(Array.isArray(kupljeni));
 
+for(var i=0; i<kupljeni.length; i++)
+prikazi_nar_u_korpi(i, kupljeni[i].ime, kupljeni[i].kolicina)
+
+
 document.getElementById("snimiLS").addEventListener("click", function(){
-			var st= JSON.stringify(kupljeni);
-			localStorage.setItem("kupljeni",st);
+			
 			alert("Your order has been saved");
+			//to do snimi sve dosadasnje korpe
+			
+			localStorage.setItem("kupljeni");
+	kupljeni=[];
 	});
 
 
 document.getElementById("clear").addEventListener("click", function(){	
 	localStorage.removeItem("kupljeni");
 	kupljeni=[];
+	document.getElementById("yourOrder").innerHTML="";
 	
 	
 	});
-for (var i=0; i<data.proizvodi.length; i++){
-    
-		pEl[i] = document.createElement("div");
-	  pEl[i].classList.add("proizvod");
-		var imeP=document.createElement("p");
-		imeP.innerHTML=data.proizvodi[i].ime;
-		pEl[i].appendChild(imeP); 
 
-var sl=document.createElement("img");
-		sl.src=data.proizvodi[i].slika;
-		pEl[i].insertAdjacentElement("beforeend",sl);
 
-		pEl[i].insertAdjacentHTML("beforeend", "<p>"+ data. proizvodi[i].cena +"</p>");
-		document.body.appendChild( pEl[i]);
 
-		var korpa=document.createElement("img");
-		korpa.src="korpa.png";
-				korpa.style.width="50px";
-		korpa.style.height="40px";
-		korpa.setAttribute("data-barkod",data.proizvodi[i].broj);
 		korpa.addEventListener("click",function(){
-		 // alert(); provera da li radi ;) radiiiiii!!!!!!!!!!!!!!! ;)
-		 
-			var br=this.getAttribute("data-barkod");
-			 var ind=-1;
-			for (var i=0; i<kupljeni.length; i++){
-					if (kupljeni[i].barkod==br)
-					ind=i;
-					console.log(kupljeni);
-			}
-			if (ind==-1)
-			kupljeni.push({barkod:br,kolicina:1});
-			else
-			kupljeni[ind].kolicina++;
-
-
-		 // kupljeni.push(barkod:br, kolicina:1);
-			console.log(kupljeni);
+				var br=this.getAttribute("data-barkod");
+				var imeP=this.getAttribute("data-imePr")
+					var ind=-1;
+					for (let i=0; i<kupljeni.length; i++){
+							if (kupljeni[i].barkod==br)
+							ind=i;
+							console.log(kupljeni);
+						
+					}
+					if (ind==-1){
+						kupljeni.push({barkod:br,kolicina:1,ime:imeP});
+						ind = kupljeni.length-1;
+						prikazi_nar_u_korpi(ind, kupljeni[ind].ime, kupljeni[ind].kolicina); //zasto je [i], a ne [ind]
+				
+					}else{
+						kupljeni[ind].kolicina++;
+						document.getElementById("yourOrder").querySelector("div[data-ind='"+ind+"']").innerHTML = 
+								kupljeni[ind].ime+" "+kupljeni[ind].kolicina;
+					}
+					var st= JSON.stringify(kupljeni);
+					localStorage.setItem("kupljeni",st);
+					console.log(kupljeni, ind);
+				
 		});
+		document.querySelector("#zoomDiv").appendChild(korpa);
 
-		 pEl[i].appendChild(korpa);
 
-}
+		function prikazi_nar_u_korpi(ind, ime, kol){
+					var narudzbina=document.createElement("div");
+						narudzbina.setAttribute("data-ind", ind);
+						narudzbina.innerHTML=ime+" "+kol;
+						document.getElementById("yourOrder").appendChild(narudzbina);
+		}
 			</script>
 
 
