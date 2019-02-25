@@ -427,43 +427,43 @@ z-index: -1;
 
 			</div>
             <div id="gallery">
-                <div id="s" class="galleryItem galleryItem-1" >
+                <div class="galleryItem galleryItem-1" >
 					<div id="o1" class="opis hidden" >Pink Forest 5€</div>
                     <img src="img/slika1.jpg" alt="slika 1" class="galleryImg">
 				</div>
-                <div id="s" class="galleryItem galleryItem-2">
+                <div class="galleryItem galleryItem-2">
 						<div id="o2" class="opis hidden">Red Sky 5€</div>
                     <img src="img/slika2.jpg" alt="slika 2" class="galleryImg">
 				</div>
-                <div id="s" class="galleryItem galleryItem-3">
+                <div class="galleryItem galleryItem-3">
 						<div id="o3" class="opis hidden">Coffee Love 5€</div>
                     <img src="img/slika3.jpg" alt="slika 3" class="galleryImg">
 				</div>
-                <div id="s" class="galleryItem galleryItem-4">
+                <div class="galleryItem galleryItem-4">
 						<div id="o4"class="opis hidden">Space Sanctuary 5€ </div>
                     <img src="img/slika4.jpg" alt="slika 4" class="galleryImg">
 				</div>
-                <div id="s"class="galleryItem galleryItem-5">
+                <div class="galleryItem galleryItem-5">
 						<div id="o5" class="opis hidden">Goth Portrait 5€</div>
                     <img src="img/slika5.jpg" alt="slika 5" class="galleryImg">
 				</div>
-                <div id="s" class="galleryItem galleryItem-6">
+                <div class="galleryItem galleryItem-6">
 						<div id="o6" class="opis hidden">Halloween Cooking 5€</div>
                     <img src="img/slika6.jpg" alt="slika 6" class="galleryImg">
 				</div>
-				<div id="s"class="galleryItem galleryItem-7">
+				<div class="galleryItem galleryItem-7">
 						<div id="o7" class="opis hidden">Moon Bath 5€ </div>
             <img src="img/slika7.jpg" alt="slika 7" class="galleryImg">
 				</div>
-				<div id="s"class="galleryItem galleryItem-8">
+					<div class="galleryItem galleryItem-8">
 						<div id="o8" class="opis hidden">Dark Ruler 5€</div>
                     <img src="img/slika8.jpg" alt="slika 8" class="galleryImg">
 				</div>
-				<div id="s"class="galleryItem galleryItem-9">
+				<div class="galleryItem galleryItem-9">
 						<div id="o9" class="opis hidden">Red Angel 5€ </div>
                     <img src="img/slika9.jpg" alt="slika 9" class="galleryImg">
 				</div>
-				<div id="s"class="galleryItem galleryItem-10">
+				<div class="galleryItem galleryItem-10">
 						<div id="o10" class="opis hidden">Forest Witch 5€</div>
 							<img src="img/slika10.jpg" alt="slika 10" class="galleryImg">
         </div>
@@ -637,7 +637,6 @@ document.getElementById("clear").addEventListener("click", function(){
 	kupljeni=[];
 	document.getElementById("yourOrder").innerHTML="";
 	
-	
 	});
 
 
@@ -673,7 +672,7 @@ document.getElementById("clear").addEventListener("click", function(){
 		function prikazi_nar_u_korpi(ind, ime, kol){
 					var narudzbina=document.createElement("div");
 						narudzbina.setAttribute("data-ind", ind);
-						narudzbina.innerHTML=ime+" "+kol;
+						narudzbina.innerHTML=ind+1+"."+" "+ ime+" "+kol;
 						document.getElementById("yourOrder").appendChild(narudzbina);
 		}
 			</script>
