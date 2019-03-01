@@ -615,12 +615,22 @@ var pEl=[];
 var proizvodiElementi=[];
 var kupljeni=[];
 
+var sveKorpe = [];
+
 var st = localStorage.getItem("kupljeni");
 console.log(st);
 if (st !== null) kupljeni=JSON.parse(st);
 else kupljeni = [];
 console.log(kupljeni);
 console.log(Array.isArray(kupljeni));
+
+	var sk = localStorage.getItem("sveKorpe");
+	console.log(sk);
+	if (sk !== null) sveKorpe = JSON.parse(sk);
+	else sveKorpe = [];
+	console.log(sveKorpe);
+
+
 suma();
 
 for(var i=0; i<kupljeni.length; i++)
@@ -628,6 +638,12 @@ for(var i=0; i<kupljeni.length; i++)
 prikazi_nar_u_korpi(i, kupljeni[i].ime, kupljeni[i].kolicina)
 
 document.getElementById("snimiLS").addEventListener("click", function(){
+	sveKorpe.push(kupljeni);
+	localStorage.setItem("sveKorpe", JSON.stringify(sveKorpe));
+
+
+
+
 	alert("Your order has been saved");
 	localStorage.removeItem("kupljeni");
 	kupljeni=[];
@@ -669,8 +685,7 @@ document.getElementById("clear").addEventListener("click", function(){
 								ind+1+". "+kupljeni[ind].ime+" "+kupljeni[ind].kolicina;
 								suma();
 					}
-					var st= JSON.stringify(kupljeni);
-					localStorage.setItem("kupljeni",st);
+					localStorage.setItem("kupljeni", JSON.stringify(kupljeni));
 					console.log(kupljeni, ind);
 				
 		});
@@ -689,7 +704,7 @@ document.getElementById("clear").addEventListener("click", function(){
 			var s=0;
 			for (let i=0; i<kupljeni.length; i++)
 		 		s+=kupljeni[i].kolicina*5;
-				 console.log(s);
+				 //console.log(s);
 			document.getElementById("suma").innerHTML=("Suma= "+s+" evra");
 			
 		}
