@@ -1,0 +1,362 @@
+html, body{ 
+	width:100%; height:100%;
+	margin:0; padding:0; 
+	}
+
+body *{ 
+	margin:0; padding:0; 
+	box-sizing:border-box;
+	font-family:'Gill Sans', sans-serif;
+	}
+a{ text-decoration:none;  }
+ol, ul{ list-style-type:none; }
+body{padding-top:1px; }
+
+div#Gallery.proizvod{height:300;
+width: auto;}
+
+/*Meni i logo*/
+#Meni {z-index: 1000;
+	display: flex;
+	position:fixed;
+	width: 100%;
+	height: 70px;
+	grid-template-columns: auto auto;
+	justify-content: space-between;
+	background-color: black;
+	}
+#Logo {width:100px;
+	height: 70px;
+	}	
+
+.menu1 {display: grid;
+	grid-template-columns: repeat(4, 100px);
+	justify-content: center;
+	grid-column-gap:10px;
+	align-items: center;
+    background-color: rgb(0, 0, 0);
+	color: aliceblue;}
+
+.menu2{display: none;}
+
+.menuitem {
+	background-color: black;
+	padding: 10px;}
+
+.menuitem a {color: aliceblue; padding: 10px; 				
+}
+
+.menuitem a:hover {
+    background-color: rgb(50, 50, 50);
+	padding: 10px;
+}
+/*Prva sekcija: Home*/
+#Home {position: relative;
+z-index: -1;
+		height: 56.25vw; 
+		align-items: center;
+		justify-content: center;
+		color:aliceblue;
+		margin-top: 70px;
+		}
+        
+#Duchess{
+	position: absolute;
+	top: 50%;
+	width: 100%;
+  transform: translate(0,-50%); 
+	font-size: 1.5vw;
+	text-shadow: 3px 3px 2px black;
+}
+
+#videoContainer {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+				overflow: hidden;
+               	}
+
+#Video1 {
+        position: absolute;
+				width: 100%;
+        }
+                
+
+#Home h1, #Home div p {line-height: 1;
+					text-align: center;}
+
+a:link, a:visited, a:hover, a:active{color:white;}
+
+#Join {z-index: 5; 
+    position: absolute;
+    top:37vw;
+    left:50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid white;
+	width: 10vw;
+	margin: 0 auto;
+	padding: 5px;
+	text-align: center;
+	border-radius: 10px;
+	color:white;
+	}
+
+
+/*Treca sekcija: About*/
+
+#About{display: grid;
+	grid-template-columns: 1fr 1fr;
+	background-color: rgb(10, 10, 10);
+	justify-items: center;
+	align-items: center;
+	}
+
+
+#bio {color: white;
+	padding:1.5vw;}
+
+#bio h2{padding: 1em;
+	font-size: 2vw;}
+
+#bio p {font-size: 1.2vw;
+		line-height: 1.5em;
+		font-family:Arial, sans-serif;
+		}
+
+#b2 {
+	height:auto;
+	width: 50%;
+	border-radius: 50%;
+	}
+
+
+/*Druga sekcija Galerija*/
+.Gallery {z-index: 3;
+  width: 100%;
+  height: 90%;
+	font-size: 1em;
+}
+
+#nevidljivi{
+position: absolute;
+background-color: rgba(255,255,255, .8);
+	height: 95vh;
+	width: 20vw;
+}
+
+#nevidljivi{
+right: -17vw; transition: right .7s;
+}
+#nevidljivi:hover{
+	right: 0vw;
+}
+.textCheckOut{padding-left: 15%;
+padding-top: 3%;
+font-size: 2vw;
+color: red;}
+
+#yourOrder{padding-left: 15%;
+	padding-top: 3%;
+	line-height: 2em;
+	font-size: 1.5vw;
+	}
+
+#suma{margin-left: 20%;
+padding: 5%;
+font-size: 2vw;}
+
+	#snimiLS{padding:1.5%;
+	
+						color:black;
+						border:2px solid blueviolet;
+						border-radius: 10px; 
+						margin:3%;
+						margin-left:15%;
+						margin-top:10%;
+						font-size: 1.5vw;}
+	#clear{padding:1.5%;
+						color:black;
+						border:2px solid blueviolet;
+						border-radius: 10px; 
+						margin:3%;
+						margin-left:15%;
+						margin-top:10%;
+						font-size: 1.5vw;}
+
+#korpica{width: 3vw;
+height: 4.5vh;
+padding: 5px;
+background-color: green;}
+
+#gallery {margin-top: -9vw;
+	background-color: white;
+	border: 10px solid white;
+	width: 100%;
+	height: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(8, 5vw);
+  grid-gap: 10px; 
+}
+
+.galleryImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; 
+}
+
+.galleryItem-1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+}
+
+.galleryItem-2 {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.galleryItem-3 {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 6;
+}
+
+.galleryItem-4 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 6;
+}
+
+.galleryItem-5 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 6;
+  grid-row-end: 9;
+}
+
+.galleryItem-6 {
+  grid-column-start: 3;
+  grid-column-end: 7;
+  grid-row-start: 6;
+  grid-row-end: 9;
+}
+.galleryItem-7 {
+  grid-column-start: 9;
+  grid-column-end: 13;
+  grid-row-start: 4;
+  grid-row-end: 9;
+}
+.galleryItem-8 {
+  grid-column-start: 9;
+  grid-column-end: 11;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+.galleryItem-9 {
+  grid-column-start: 11;
+  grid-column-end: 13;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+.galleryItem-10 {
+  grid-column-start: 7;
+  grid-column-end: 9;
+  grid-row-start: 6;
+  grid-row-end: 9;
+}
+
+#zoomDiv{
+	position: fixed;
+			height: 100%;
+      width: 100%; top:0; left:0;
+			display: none;
+}
+#zoom{position: fixed;
+			height: 90%;
+      width: auto;
+			border-style:solid;
+			border-width:30px 150px 30px 150px;
+			border-color: rgba(255, 255, 255, 0.6);
+			top:8%;
+			left:10%;
+			} 
+#zoom_korpica{
+	position: absolute;
+	width: 3em;
+	height: auto;
+	left: 11em;
+	bottom: 3em;
+}
+	
+.opis{position: absolute;
+background-color:rgb(243, 245, 247 ,0.5);
+font-size: 1.5vw;
+margin: 5px;
+padding: 4px;
+	}
+
+.galleryItem .hidden{
+opacity: 0; transition: opacity .7s;
+}
+.galleryItem:hover .hidden{
+	opacity:1;
+}
+
+/*Poslednja sekcija kontakt*/
+#Contact {position: relative;
+z-index: -1;
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	padding:30px;
+	color:aliceblue;
+	font-size: 1.2vw;
+	text-shadow:  3px 3px 2px black;
+	}	
+
+#text1 {height:auto;
+						width:auto;
+						font-size: 1.2em}
+
+#podaci {justify-self: center;}
+
+#kontaktPozadina{
+	position: absolute;
+	top:0; left:0; right: 0; bottom: 0;
+	z-index: -1;
+	opacity: .8;
+	background-image: url("back.jpg");
+	background-size:cover;
+
+}
+
+#tricrte {display: none;}
+
+
+@media screen and (max-width: 600px) {
+	.menu1 {
+	display: none;
+}
+
+ #tricrte {display: block;
+ height:70px;
+ float:right;}
+
+.menu2{display: inline-block;}
+
+#podmeni2{display: none;
+					}
+.menu2:hover #podmeni2{display: block;
+					}
+
+}
