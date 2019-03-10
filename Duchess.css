@@ -10,7 +10,8 @@ body *{
 	}
 a{ text-decoration:none;  }
 ol, ul{ list-style-type:none; }
-body{padding-top:1px; }
+body{padding-top:1px;
+	overflow-x: hidden;  }
 
 div#Gallery.proizvod{height:300;
 width: auto;}
@@ -89,21 +90,6 @@ z-index: -1;
 
 a:link, a:visited, a:hover, a:active{color:white;}
 
-#Join {z-index: 5; 
-    position: absolute;
-    top:37vw;
-    left:50%;
-    transform: translate(-50%, -50%);
-    border: 2px solid white;
-	width: 10vw;
-	margin: 0 auto;
-	padding: 5px;
-	text-align: center;
-	border-radius: 10px;
-	color:white;
-	}
-
-
 /*Treca sekcija: About*/
 
 #About{display: grid;
@@ -152,6 +138,7 @@ right: -17vw; transition: right .7s;
 #nevidljivi:hover{
 	right: 0vw;
 }
+
 .textCheckOut{padding-left: 15%;
 padding-top: 3%;
 font-size: 2vw;
@@ -185,9 +172,18 @@ font-size: 2vw;}
 						margin-top:10%;
 						font-size: 1.5vw;}
 
+	#review{padding:1.5%;
+		color:black;
+		border:2px solid blueviolet;
+		border-radius: 10px; 
+		margin:3%;
+		margin-left:15%;
+		margin-top:80%;
+		font-size: 1.5vw;}
+
 #korpica{width: 3vw;
-height: 4.5vh;
-padding: 5px;
+height: auto;
+padding: 3px;
 background-color: green;}
 
 #gallery {margin-top: -9vw;
@@ -283,20 +279,28 @@ background-color: green;}
 			display: none;
 }
 #zoom{position: fixed;
-			height: 90%;
-      width: auto;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-color: rgba(255, 255, 255, 0.705);
+			height: auto;
+			width: 70vw;
 			border-style:solid;
-			border-width:30px 150px 30px 150px;
-			border-color: rgba(255, 255, 255, 0.6);
-			top:8%;
+			border-width:7px;
+			border-color: rgba(255, 255, 255, 0.1);
+			top:10%;
+			bottom:2%;
 			left:10%;
+			right:10%;
 			} 
 #zoom_korpica{
-	position: absolute;
-	width: 3em;
+	background-color: white;
+	position: fixed;
+	width: 4%;
 	height: auto;
-	left: 11em;
-	bottom: 3em;
+	padding:0.2em;
+	left: 11%;
+	bottom:2.5%;
 }
 	
 .opis{position: absolute;
@@ -342,7 +346,9 @@ z-index: -1;
 
 #tricrte {display: none;}
 
-
+@media screen and (max-width: 830px) {
+	#zoom_korpica{bottom: 25%;}
+}
 @media screen and (max-width: 600px) {
 	.menu1 {
 	display: none;
@@ -358,5 +364,6 @@ z-index: -1;
 					}
 .menu2:hover #podmeni2{display: block;
 					}
+#zoom_korpica{bottom: 50%;}
 
 }

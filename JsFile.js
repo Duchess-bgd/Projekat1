@@ -1,6 +1,3 @@
-
-//ovde pocinje JS
-
 //za video u Chrome
 window.addEventListener('click', function(){
     var playPromise = document.querySelector('video').play();
@@ -18,13 +15,14 @@ var zsl = document.getElementById("zoom");
 var slike = document.querySelectorAll('img.galleryImg');
 
 for (let i = 0; i < slike.length; i++)
+
 slike[i].addEventListener("click", function () {
 korpa.setAttribute("data-barkod",data.proizvodi[i].broj);
- korpa.setAttribute("data-imePr",data.proizvodi[i].ime);
+korpa.setAttribute("data-imePr",data.proizvodi[i].ime);
 
 zsl.src = this.src;
 zslDiv.style.display = "block";
-
+zsl.style.backgroundImage =  "url('"+data.proizvodi[i].slika+"')";     //"url('img/slika"+(i+1)+".jpg')";
 });
 
 zslDiv.onclick = function () {
@@ -106,11 +104,11 @@ else kupljeni = [];
 console.log(kupljeni);
 console.log(Array.isArray(kupljeni));
 
-var sk = localStorage.getItem("sveKorpe");
+/*var sk = localStorage.getItem("sveKorpe");
 console.log(sk);
 if (sk !== null) sveKorpe = JSON.parse(sk);
 else sveKorpe = [];
-console.log(sveKorpe);
+console.log(sveKorpe);*/
 
 
 suma();
@@ -122,8 +120,6 @@ prikazi_nar_u_korpi(i, kupljeni[i].ime, kupljeni[i].kolicina)
 document.getElementById("snimiLS").addEventListener("click", function(){
 sveKorpe.push(kupljeni);
 localStorage.setItem("sveKorpe", JSON.stringify(sveKorpe));
-
-
 
 
 alert("Your order has been saved");
