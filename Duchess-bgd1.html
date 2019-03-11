@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+        <link  id="favicon" rel="shortcut icon" type="image/x-icon"  />
+		<title>Duchess-bgd</title>
+
+<style>
+
+html, body{ 
+	width:100%; height:100%;
+	margin:0; padding:0; 
+	}
+
+body *{ 
+	margin:0; padding:0; 
+	box-sizing:border-box;
+	font-family:'Gill Sans', sans-serif;
+	}
+a{ text-decoration:none;  }
+ol, ul{ list-style-type:none; }
+body{padding-top:1px; }
+
+div#Gallery.proizvod{height:300;
+width: auto;}
+
+/*Meni i logo*/
+#Meni {z-index: 1000;
+	display: flex;
+	position:fixed;
+	width: 100%;
+	height: 70px;
+	grid-template-columns: auto auto;
+	justify-content: space-between;
+	background-color: black;
+	}
+#Logo {width:100px;
+	height: 70px;
+	}	
+
+.menu1 {display: grid;
+	grid-template-columns: repeat(4, 100px);
+	justify-content: center;
+	grid-column-gap:10px;
+	align-items: center;
+    background-color: rgb(0, 0, 0);
+	color: aliceblue;}
+
+.menu2{display: none;}
+
+.menuitem {
+	background-color: black;
+	padding: 10px;}
+
+.menuitem a {color: aliceblue; padding: 10px; 				
+}
+
+.menuitem a:hover {
+    background-color: rgb(50, 50, 50);
+	padding: 10px;
+}
+/*Prva sekcija: Home*/
+#Home {position: relative;
+z-index: -1;
+		height: 56.25vw; 
+		align-items: center;
+		justify-content: center;
+		color:aliceblue;
+		margin-top: 70px;
+		}
+        
+#Duchess{z-index: -1;
+	position: absolute;
+	top: 50%;
+	width: 100%;
+  transform: translate(0,-50%); 
+	font-size: 1.5vw;
+	text-shadow: 3px 3px 2px black;
+}
+
+#videoContainer {z-index: -1;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+				overflow: hidden;
+               	}
+
+#Video1 {z-index: -1;
+        position: absolute;
+				width: 100%;
+        }
+                
+
+#Home h1, #Home div p {line-height: 1;
+					text-align: center;}
+
+a:link, a:visited, a:hover, a:active{color:white;}
+
+#Join {z-index: 2;
+    border: 2px solid white;
+	width: 10vw;
+	margin: 0 auto;
+	padding: 5px;
+	text-align: center;
+	border-radius: 10px;
+	color:white;
+	}
+
+
+/*Treca sekcija: About*/
+
+#About{display: grid;
+	grid-template-columns: 1fr 1fr;
+	background-color: rgb(10, 10, 10);
+	justify-items: center;
+	align-items: center;
+	}
+
+
+#bio {color: white;
+	padding:1.5vw;}
+
+#bio h2{padding: 1em;
+	font-size: 2vw;}
+
+#bio p {font-size: 1.2vw;
+		line-height: 1.5em;
+		font-family:Arial, sans-serif;
+		}
+
+#b2 {
+	height:auto;
+	width: 50%;
+	border-radius: 50%;
+	}
+
+
+/*Druga sekcija Galerija*/
+.Gallery {z-index: 3;
+  width: 100%;
+  height: 90%;
+	font-size: 1em;
+}
+
+#nevidljivi{
+position: absolute;
+background-color: rgba(255,255,255, .8);
+	height: 95vh;
+	width: 20vw;
+}
+
+#nevidljivi{
+right: -17vw; transition: right .7s;
+}
+#nevidljivi:hover{
+	right: 0vw;
+}
+.textCheckOut{padding-left: 15%;
+padding-top: 3%;
+font-size: 2vw;
+color: red;}
+
+#yourOrder{padding-left: 15%;
+	padding-top: 3%;
+	line-height: 2em;
+	font-size: 1.5vw;
+	}
+
+#suma{margin-left: 20%;
+padding: 5%;
+font-size: 2vw;}
+
+	#snimiLS{padding:1.5%;
+	
+						color:black;
+						border:2px solid blueviolet;
+						border-radius: 10px; 
+						margin:3%;
+						margin-left:15%;
+						margin-top:10%;
+						font-size: 1.5vw;}
+	#clear{padding:1.5%;
+						color:black;
+						border:2px solid blueviolet;
+						border-radius: 10px; 
+						margin:3%;
+						margin-left:15%;
+						margin-top:10%;
+						font-size: 1.5vw;}
+
+#korpica{width: 3vw;
+height: 4.5vh;
+padding: 5px;
+background-color: green;}
+
+#gallery {margin-top: -9vw;
+	background-color: white;
+	border: 10px solid white;
+	width: 100%;
+	height: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(8, 5vw);
+  grid-gap: 10px; 
+}
+
+.galleryImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; 
+}
+
+.galleryItem-1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  /* grid-column: 1 / span 2;  */
+  /* grid-row: 1 / span 2; */
+}
+
+.galleryItem-2 {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.galleryItem-3 {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 6;
+}
+
+.galleryItem-4 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 6;
+}
+
+.galleryItem-5 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 6;
+  grid-row-end: 9;
+}
+
+.galleryItem-6 {
+  grid-column-start: 3;
+  grid-column-end: 7;
+  grid-row-start: 6;
+  grid-row-end: 9;
+}
+.galleryItem-7 {
+  grid-column-start: 9;
+  grid-column-end: 13;
+  grid-row-start: 4;
+  grid-row-end: 9;
+}
+.galleryItem-8 {
+  grid-column-start: 9;
+  grid-column-end: 11;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+.galleryItem-9 {
+  grid-column-start: 11;
+  grid-column-end: 13;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+.galleryItem-10 {
+  grid-column-start: 7;
+  grid-column-end: 9;
+  grid-row-start: 6;
+  grid-row-end: 9;
+}
+
+#zoomDiv{
+	position: fixed;
+			height: 100%;
+      width: 100%; top:0; left:0;
+			display: none;
+}
+#zoom{position: fixed;
+			height: 90%;
+      width: auto;
+			border-style:solid;
+			border-width:30px 150px 30px 150px;
+			border-color: rgba(255, 255, 255, 0.6);
+			top:8%;
+			left:10%;
+			} 
+#zoom_korpica{
+	position: absolute;
+	width: 3em;
+	height: auto;
+	left: 11em;
+	bottom: 3em;
+}
+	
+.opis{position: absolute;
+background-color:rgb(243, 245, 247 ,0.5);
+font-size: 1.5vw;
+margin: 5px;
+padding: 4px;
+	}
+
+.galleryItem .hidden{
+opacity: 0; transition: opacity .7s;
+}
+.galleryItem:hover .hidden{
+	opacity:1;
+}
+
+/*Poslednja sekcija kontakt*/
+#Contact {position: relative;
+z-index: -1;
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	padding:30px;
+	color:aliceblue;
+	font-size: 1.2vw;
+	text-shadow:  3px 3px 2px black;
+	}	
+
+#text1 {height:auto;
+						width:auto;
+						font-size: 1.2em}
+
+#podaci {justify-self: center;}
+
+#kontaktPozadina{
+	position: absolute;
+	top:0; left:0; right: 0; bottom: 0;
+	z-index: -1;
+	opacity: .8;
+	background-image: url("back.jpg");
+	background-size:cover;
+
+}
+
+#tricrte {display: none;}
+
+
+@media screen and (max-width: 600px) {
+/*	#Meni ul*/.menu1 {
+	display: none;
+}
+
+ #tricrte {display: block;
+ height:70px;
+ float:right;}
+
+.menu2{display: inline-block;}
+
+#podmeni2{display: none;
+					}
+.menu2:hover #podmeni2{display: block;
+					}
+
+}
+</style>
+</head>
+<body>  
+
+<!--Meni-->
+		<div id="Meni">
+				
+			<img id="Logo" src="Logo.jpg" alt="Logo"/>
+			<div> 
+					
+					<ul class=menu2>
+							<li class="podmeni"><a href="#">
+							<img id="tricrte" src="nav.png" alt="Nav"></a> </li>
+								<ul id="podmeni2">
+									<li class="menuitem"><a href="#Home">Home</a></li>
+									<li class="menuitem"><a href="#About">About</a></li>
+									<li class="menuitem"><a href="#Gallery">Gallery</a></li>
+									<li class="menuitem"><a href="#Contact">Contact</a></li>
+							</ul>	
+						</ul>	
+			</div>
+			<ul class=menu1>
+				<li class="menuitem"><a href="#Home">Home</a></li>
+				<li class="menuitem"><a href="#About">About</a></li>
+				<li class="menuitem"><a href="#Gallery">Gallery</a></li>
+				<li class="menuitem"><a href="#Contact">Contact</a></li>
+			</ul>		
+		</div>
+
+<!--Home - Prva sekcija-->
+		<div id="Home">
+                <div id="videoContainer">
+                <video id="Video1" autoplay loop>
+								<source src="Video1.mp4" type="video/mp4">
+                </video> 
+			<div id="Duchess">
+				<h1>Duchess</h1>
+				<br>
+				<p>Welcome to the fantasy gallery</p>
+				<br><br>
+				<p id="Join"><a href="#Gallery">Visit</a></p>
+			</div>
+				</div>		
+			</div>
+
+<!--Galerija - Druga sekcija-->
+		<div id="Gallery">
+
+			<div id="nevidljivi"> <img src="korpa.png" id="korpica"/><p class=textCheckOut>Check Out</p>
+				<div id="yourOrder"><b>Your Order:</b>
+
+				<div></div>
+				</div>
+				<hr>
+					<div id="suma">Suma: </div>
+					<button id="snimiLS">Confirm</button> 
+					<button id="clear">Clear</button> 
+
+			</div>
+            <div id="gallery">
+                <div class="galleryItem galleryItem-1" >
+					<div id="o1" class="opis hidden" >Pink Forest 5€</div>
+                    <img src="img/slika1.jpg" alt="slika 1" class="galleryImg">
+				</div>
+                <div class="galleryItem galleryItem-2">
+						<div id="o2" class="opis hidden">Red Sky 5€</div>
+                    <img src="img/slika2.jpg" alt="slika 2" class="galleryImg">
+				</div>
+                <div class="galleryItem galleryItem-3">
+						<div id="o3" class="opis hidden">Coffee Love 5€</div>
+                    <img src="img/slika3.jpg" alt="slika 3" class="galleryImg">
+				</div>
+                <div class="galleryItem galleryItem-4">
+						<div id="o4"class="opis hidden">Space Sanctuary 5€ </div>
+                    <img src="img/slika4.jpg" alt="slika 4" class="galleryImg">
+				</div>
+                <div class="galleryItem galleryItem-5">
+						<div id="o5" class="opis hidden">Goth Portrait 5€</div>
+                    <img src="img/slika5.jpg" alt="slika 5" class="galleryImg">
+				</div>
+                <div class="galleryItem galleryItem-6">
+						<div id="o6" class="opis hidden">Halloween Cooking 5€</div>
+                    <img src="img/slika6.jpg" alt="slika 6" class="galleryImg">
+				</div>
+				<div class="galleryItem galleryItem-7">
+						<div id="o7" class="opis hidden">Moon Bath 5€ </div>
+            <img src="img/slika7.jpg" alt="slika 7" class="galleryImg">
+				</div>
+					<div class="galleryItem galleryItem-8">
+						<div id="o8" class="opis hidden">Dark Ruler 5€</div>
+                    <img src="img/slika8.jpg" alt="slika 8" class="galleryImg">
+				</div>
+				<div class="galleryItem galleryItem-9">
+						<div id="o9" class="opis hidden">Red Angel 5€ </div>
+                    <img src="img/slika9.jpg" alt="slika 9" class="galleryImg">
+				</div>
+				<div class="galleryItem galleryItem-10">
+						<div id="o10" class="opis hidden">Forest Witch 5€</div>
+							<img src="img/slika10.jpg" alt="slika 10" class="galleryImg">
+        </div>
+			</div>
+			<div id="zoomDiv">
+			<img id="zoom" src="" alt="" />
+			<div id="korpaDiv">
+			<img id="zoom_korpica" src="korpa.png" alt="" />
+		</div>
+			</div>
+
+<!--About - Treca sekcija-->
+		<div id="About">
+				<img id="b2" src="me.jpg" alt="portret"> 	
+			<div id="bio"><h2>About</h2>
+					<p>Trenutno na intenzivnom šestomesečnom kursu Front End programiranja u Com Trade IT 
+						(Code Academy) školi. Kurs obuhvata HTML,CSS, JavaScript, Bootstrap i srodne oblasti.
+						Diplomirala na Fakultetu Političkih Nauka 2006. godine u roku, a završila i 
+						 master na FPN smer Javna Uprava i Lokalna samouprava 2009. godine sa prosečnom 
+						 ocenom 10.00. Iste godine upisala i doktorske studije na tom fakultetu i trenutno 
+						 piše doktorsku tezu.
+						 2016 -  Svet Kompjutera (Politika A.D.) radi kao stručni saradnik u rubrici Test Run koja je
+							posvećena aktuelnom softveru. Zadužena za testiranje svih vrsta softvera (grafički, tekstualni,
+							 audio, multimedija itd) i pisanje tekstova o testiranom softveru namenjenog čitaocima Sveta 
+							 Kompjutera. Do sada objavljene tekstove u ovoj rubrici (njih preko 200) možete pronaći na 
+							 sledećem linku https://www.sk.rs/indexes/sections/tr.html
+							Sem testiranja softvera objavljeno je i nekoliko tekstova u rubrici „Na licu mesta“ gde je 
+							izveštavala sa različitih IT konferencija.
+					 </p>
+			</div>
+		</div>
+<!--Kontakt - Treca sekcija-->
+		<div id="Contact">
+			<div id="kontaktPozadina"></div>
+			<div id="podaci">
+				Contact: <br><br><br>
+				Gordana Radovic <br><br>
+				e-mail: gordana.ss@gmail.com<br><br>
+				Phone: 0603229659
+			</div>
+			<div id="forma">
+				<p><b>Send me a message:</b><p><br>
+				<p>Name: <br></p>
+				<input type="text" name="ime" value="" />
+				<p id="tekst">Message text</p><br>
+				<textarea rows="9" cols="40" name="Komentar" id=text1></textarea>
+				<br>
+				<input type="submit" value="Send" />
+			</div>
+		</div>
+
+		<script> 
+
+//ovde pocinje JS
+
+//za video u Chrome
+			window.addEventListener('click', function(){
+				var playPromise = document.querySelector('video').play();
+					if (playPromise !== undefined) {
+					playPromise.then(function() {
+					}).catch(function(error) {
+					});
+}
+			})
+// za zoomiranje slika u galeriji i setovanje korpe
+
+	var korpa=document.querySelector("#korpaDiv");
+	var zslDiv = document.getElementById("zoomDiv");
+	var zsl = document.getElementById("zoom");
+	var slike = document.querySelectorAll('img.galleryImg');
+
+	for (let i = 0; i < slike.length; i++)
+		slike[i].addEventListener("click", function () {
+		   korpa.setAttribute("data-barkod",data.proizvodi[i].broj);
+			 korpa.setAttribute("data-imePr",data.proizvodi[i].ime);
+
+			zsl.src = this.src;
+			zslDiv.style.display = "block";
+
+		});
+
+		zslDiv.onclick = function () {
+		this.style.display = "none";
+	}
+
+//za WebShop
+
+//Objekat:
+
+	var data={ 
+
+proizvodi:[
+		{ ime:"Pink Forest",
+	cena:5,
+	slika:"img/slika1.jpg",
+	broj: 1 
+},
+{ ime:"Red Sky",
+	cena:5,
+	slika:"img/slika2.jpg",
+	broj: 2
+},
+{ ime:"Coffee Love",
+	cena:5,
+	slika:"img/slika3.jpg",
+	broj: 3
+},
+{ ime:"Space Sanctuary",
+	cena:5,
+	slika:"img/slika4.jpg",
+	broj: 4
+},
+{ ime:"Goth Portrait",
+	cena:5,
+	slika:"img/slika5.jpg",
+	broj: 5
+},
+{ ime:"Halloween Cooking",
+	cena:5,
+	slika:"img/slika6.jpg",
+	broj: 6
+},
+{ ime:"Moon Bath",
+	cena:5,
+	slika:"img/slika7.jpg",
+	broj: 7
+},
+{ ime:"Dark Ruler",
+	cena:5,
+	slika:"img/slika8.jpg",
+	broj: 8
+},
+{ ime:"Red Angel",
+	cena:5,
+	slika:"img/slika9.jpg",
+	broj: 9
+},
+{ ime:"Forest Witch",
+	cena:5,
+	slika:"img/slika10.jpg",
+	broj: 10
+}
+]
+};
+
+//Snimanje u Local Strorage i funkcije za dugmice "Clear" i "Confirm"
+
+var pEl=[];
+var proizvodiElementi=[];
+var kupljeni=[];
+
+var sveKorpe = [];
+
+var st = localStorage.getItem("kupljeni");
+console.log(st);
+if (st !== null) kupljeni=JSON.parse(st);
+else kupljeni = [];
+console.log(kupljeni);
+console.log(Array.isArray(kupljeni));
+
+	var sk = localStorage.getItem("sveKorpe");
+	console.log(sk);
+	if (sk !== null) sveKorpe = JSON.parse(sk);
+	else sveKorpe = [];
+	console.log(sveKorpe);
+
+
+suma();
+
+for(var i=0; i<kupljeni.length; i++)
+
+prikazi_nar_u_korpi(i, kupljeni[i].ime, kupljeni[i].kolicina)
+
+document.getElementById("snimiLS").addEventListener("click", function(){
+	sveKorpe.push(kupljeni);
+	localStorage.setItem("sveKorpe", JSON.stringify(sveKorpe));
+
+
+
+
+	alert("Your order has been saved");
+	localStorage.removeItem("kupljeni");
+	kupljeni=[];
+	document.getElementById("yourOrder").innerHTML = "";
+	document.getElementById("suma").innerHTML=("Suma= "+0+" evra");
+	});
+
+
+document.getElementById("clear").addEventListener("click", function(){	
+	localStorage.removeItem("kupljeni");
+	kupljeni=[];
+	document.getElementById("yourOrder").innerHTML="";
+	document.getElementById("suma").innerHTML=("Suma= "+0+" evra");
+	
+	});
+
+//narucivanje i prikaz u korpi
+	
+		korpa.addEventListener("click",function(){
+				var br=this.getAttribute("data-barkod");
+				var imeP=this.getAttribute("data-imePr")
+					var ind=-1;
+					for (let i=0; i<kupljeni.length; i++){
+							if (kupljeni[i].barkod==br)
+							ind=i;
+							suma();
+							console.log(kupljeni);
+						
+					}
+					if (ind==-1){
+						kupljeni.push({barkod:br,kolicina:1,ime:imeP});
+						ind = kupljeni.length-1;
+						prikazi_nar_u_korpi(ind, kupljeni[ind].ime, kupljeni[ind].kolicina);
+						suma();
+				
+					}else{
+						kupljeni[ind].kolicina++;
+						document.getElementById("yourOrder").querySelector("div[data-ind='"+ind+"']").innerHTML = 
+								ind+1+". "+kupljeni[ind].ime+" "+kupljeni[ind].kolicina;
+								suma();
+					}
+					localStorage.setItem("kupljeni", JSON.stringify(kupljeni));
+					console.log(kupljeni, ind);
+				
+		});
+		document.querySelector("#zoomDiv").appendChild(korpa);
+
+
+		function prikazi_nar_u_korpi(ind, ime, kol){
+					var narudzbina=document.createElement("div");
+						narudzbina.setAttribute("data-ind", ind);
+						narudzbina.innerHTML=ind+1+"."+" "+ ime+" "+kol;
+						document.getElementById("yourOrder").appendChild(narudzbina);
+						
+		}
+
+		function suma(){
+			var s=0;
+			for (let i=0; i<kupljeni.length; i++)
+		 		s+=kupljeni[i].kolicina*5;
+				 //console.log(s);
+			document.getElementById("suma").innerHTML=("Suma= "+s+" evra");
+			
+		}
+
+			</script>
+
+
+
+    </body>
+
+</html>
