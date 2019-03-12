@@ -102,7 +102,7 @@ console.log(st);
 if (st !== null) kupljeni=JSON.parse(st);
 else kupljeni = [];
 console.log(kupljeni);
-console.log(Array.isArray(kupljeni));
+//console.log(Array.isArray(kupljeni));
 
 /*var sk = localStorage.getItem("sveKorpe");
 console.log(sk);

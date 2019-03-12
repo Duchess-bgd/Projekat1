@@ -159,26 +159,23 @@ font-size: 2vw;}
 						color:black;
 						border:2px solid blueviolet;
 						border-radius: 10px; 
-						margin:3%;
-						margin-left:15%;
-						margin-top:10%;
+						margin:10% 5% 20% 15%;
 						font-size: 1.5vw;}
 	#clear{padding:1.5%;
 						color:black;
 						border:2px solid blueviolet;
 						border-radius: 10px; 
-						margin:3%;
-						margin-left:15%;
-						margin-top:10%;
+						margin: 10% 5% 20% 15%;
 						font-size: 1.5vw;}
 
 	#review{padding:1.5%;
+		background-color: white;
 		color:black;
 		border:2px solid blueviolet;
 		border-radius: 10px; 
-		margin:3%;
+		margin:5%;
 		margin-left:15%;
-		margin-top:80%;
+		margin-top:2%;
 		font-size: 1.5vw;}
 
 #korpica{width: 3vw;
@@ -332,7 +329,12 @@ z-index: -1;
 						width:auto;
 						font-size: 1.2em}
 
-#podaci {justify-self: center;}
+#podaci {justify-self: center;
+background-color: rgba(255, 255, 255, 0.459);
+border-radius: 10%;
+padding: 8%;
+color: black;
+text-shadow:  3px 3px 2px rgb(66, 66, 66)}
 
 #kontaktPozadina{
 	position: absolute;
