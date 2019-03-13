@@ -292,6 +292,8 @@ background-color: green;}
 			} 
 #zoom_korpica{
 	background-color: white;
+	border:2px solid white;
+	border-radius:15%;
 	position: fixed;
 	width: 4%;
 	height: auto;
@@ -348,7 +350,7 @@ text-shadow:  3px 3px 2px rgb(66, 66, 66)}
 
 #tricrte {display: none;}
 
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 880px) {
 	#zoom_korpica{bottom: 25%;}
 }
 @media screen and (max-width: 600px) {
